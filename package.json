@@ -6,20 +6,16 @@
   "name": "404_59_web_server_js",
   "description": "JS web server for ECEN Capstone project",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "dbConnection.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "node dbConnection.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "https://github.tamu.edu/hlkuhn2023/404_59_web_server_js"
   },
-  "keywords": [
-    "node",
-    "heroku",
-    "express"
-  ],
+  "keywords": [],
   "author": "Harrison Kuhn",
   "license": "MIT"
 }
