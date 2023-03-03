@@ -37,14 +37,22 @@ app.use(bodyParser.json());
 //Connecting to database
 const {Client} = require('pg');
 const {query} = require('express');
-const client = new Client({
-  host: 'ec2-44-194-4-127.compute-1.amazonaws.com',
-  database: 'd6bhuh5niesvn6',
-  user: 'wsogoxkbuvqwoq',
-  port: 5432,
-  password: '3a630e55c6d938ba0864800ab91afc899b222b44ea91eef819e8cf96a7913e9d',
-})
 
+const client = new Client({
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false
+  }
+})
+/*
+const client = new Client({
+  host: '',
+  database: '',
+  user: '',
+  port: ,
+  password: '',
+})
+*/
 client.connect((err) => {
   if (err) {
     console.error('connection error', err.stack)
