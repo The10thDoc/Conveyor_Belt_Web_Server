@@ -1,10 +1,8 @@
-//Connecting to database
-const { Pool } = require('pg');
-const pool = new Pool({
-  host: 
-  user: 
-  database: 
-  password: 
-  port: 5432,
-})
+//require('dbConnection.js')
 
+
+<html>
+<head>
+    <script src="./dbConnection.js"></script>
+</head>
+</html>
