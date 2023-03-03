@@ -1,0 +1,12 @@
+{
+  "name": "404_59_web_server_js",
+  "version": "1.0.0",
+  "description": "JS web server for ECEN Capstone project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
