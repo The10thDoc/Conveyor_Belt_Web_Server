@@ -87,3 +87,4 @@ app.get('/updateSessionInfo', function(req, res) {
   updateSessionInfo();
   res.send("Complete");
 });
+
