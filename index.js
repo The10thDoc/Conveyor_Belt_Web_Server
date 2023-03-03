@@ -1,1 +1,1 @@
-require('dbConnection.js');
+db = require('./dbConnection')
