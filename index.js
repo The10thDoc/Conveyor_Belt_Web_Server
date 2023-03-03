@@ -1,1 +1,2 @@
-db = require('./dbConnection')
+const express = require('express')
+const app = express()
