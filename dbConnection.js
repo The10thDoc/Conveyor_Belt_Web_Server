@@ -8,7 +8,7 @@ const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const app = express();
-const port = 5432;
+const port = 3000;  //Placeholder port
 var path = require('path');
 
 app.use(cors({origin: "*"}));
@@ -16,6 +16,9 @@ app.use(express.static('serverFiles')); //Specifying folder to look for files in
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+app.listen(process.env.PORT || port, () => {
+  console.log(`Point of Sales system listening on port ${port}`)
+})
 //Connecting to database
 const {Client} = require('pg');     //pg dependency for Postgres
 const {query} = require('express'); //express dependency
