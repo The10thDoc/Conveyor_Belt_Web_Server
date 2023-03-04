@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="addPackage.css" id="style"></link>
+        <title>Add a Package</title>
+    </head>
+
+    <body>
+        <div class="grid-container">
+            <div class="newPackageLabel" id="newPackageLabel">
+                <p class="packageText">Create New Package:</p>
+                <p class="packageSubtext">Enter the Package Info: </p>
+            </div>
+
+            <div class="newPackageStickerColor" id="newPackageStickerColor">
+                <div class="input-group">
+                    <input type="text" id="stickerColor" class="form-control rounded" placeholder="Enter Sticker Color *" aria-label="Search"
+                    aria-describedby="search-addon" oninput="" tabindex="1">
+                </div>
+            </div>
+
+            <div class="newPackageTimeSorted" id="newPackageTimeSorted">
+                <div class="input-group">
+                    <input type="text" id="timeSorted" class="form-control rounded" placeholder="Enter Time Sorted *" aria-label="Search"
+                    aria-describedby="search-addon" oninput="" tabindex="2">
+                </div>
+            </div>
+            <div class="addToTable" id="addPackageToTableButton">
+                <p>
+                    <button type="button" id="packageButton" class="btn btn-primary btn-lg" onclick="addPackageToDB(); searchFunction('stickerColor')" tabindex="6">Add Package to Table</button>
+                    <script src="addPackage.js"></script>
+                </p>
+            </div>
+        </div>
+    </body>
+</html>

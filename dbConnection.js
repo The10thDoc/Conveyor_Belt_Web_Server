@@ -22,6 +22,8 @@ app.listen(port, () => {
 //Connecting to database
 const {Client} = require('pg');     //pg dependency for Postgres
 const {query} = require('express'); //express dependency
+const { hasSubscribers } = require('diagnostics_channel');
+const { start } = require('repl');
 
 //Making client for connecting to database
 const client = new Client({
