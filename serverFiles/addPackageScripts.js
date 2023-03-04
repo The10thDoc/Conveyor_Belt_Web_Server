@@ -31,6 +31,10 @@ async function addPackageToDB() {
         },
         body: JSON.stringify(newPackage)
     })
+
+
+    document.getElementById("stickerColor").value = '';
+    document.getElementById("timeSorted").value = '';
 }
 
 
