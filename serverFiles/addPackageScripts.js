@@ -32,6 +32,13 @@ async function addPackageToDB() {
         body: JSON.stringify(newPackage)
     })
 
+    const packageTableResponse = await fetch('/updatepackageInfo', {
+        method: 'GET',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        }
+    });
 
     document.getElementById("stickerColor").value = '';
     document.getElementById("timeSorted").value = '';
