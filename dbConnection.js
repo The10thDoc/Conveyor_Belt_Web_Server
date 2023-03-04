@@ -8,7 +8,7 @@ const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const app = express();
-const port = 3000;
+const port = 5432;
 var path = require('path');
 
 app.use(cors({origin: "*"}));
