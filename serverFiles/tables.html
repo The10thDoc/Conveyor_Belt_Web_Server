@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+        <title>Available Tables</title>
+    </head>
+
+    <body>
+        <div class="table1" style="overflow-y:scroll; width: 100%";>
+            <table class="package_sheet" id="package_sheet">
+                <script src="tableScripts.js" onload="createPackageSheet();"></script>
+                <tr>
+                    <th>Package ID</th>
+                    <th>Sticker Color</th>
+                    <th>Time Sorted</th>
+                </tr>
+            </table>
+        </div>
+
+        <div class="table2" style="overflow-y:scroll; width: 100%";>
+            <table class="session_sheet" id="session_sheet">
+                <script src="tableScripts.js" onload="createSessionSheet();"></script>
+                <tr>
+                    <th>Session ID</th>
+                    <th>Start Time</th>
+                    <th>End Time</th>
+                    <th>Total Packages Sorted</th>
+                    <th>Number of Red Packages</th>
+                    <th>Number of Green Packages</th>
+                    <th>Number of Blue Packages</th>
+                    <th>Number of Yellow Packages</th>
+                    <th>Number of Magenta Packages</th>
+                    <th>Number of Cyan Packages</th>
+                    <th>Number of Errors</th>
+                </tr>
+            </table>
+        </div>
+    </body>
+</html>

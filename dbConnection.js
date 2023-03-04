@@ -47,6 +47,7 @@ client.connect((err) => {
 
 var packageInfo;
 var sessionInfo;
+var desiredStickerColor;
 
 updatePackageInfo();
 updateSessionInfo();
@@ -77,7 +78,7 @@ function updateSessionInfo() {
   });
 }
 
-/*
+//TODO: FINISH STICKER COLOR FUNCTION
 function countStickerColors() {
   client.query('SELECT * FROM packageinfo WHERE stickercolor = ',(err, res)=>{
     if(!err) {
@@ -90,7 +91,7 @@ function countStickerColors() {
     }
   });
 }
-*/
+
 
 //GET FUNCTIONS
 app.get('/updatePackageInfo', function(req, res) {
@@ -111,9 +112,13 @@ app.get('/packageInfo', function(req, res) {
   }
 })
 
+//TODO: If user wants specific sessionID
 app.get('/sessionInfo', function(req, res) {
   if(Object.keys(req.query).length === 0) { //If no args
     res.send(sessionInfo);
+  }
+  else {
+
   }
 })
 
