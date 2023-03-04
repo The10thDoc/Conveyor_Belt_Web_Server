@@ -8,7 +8,7 @@ const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const app = express();
-const port = 3000;  //Placeholder port
+const port = process.env.PORT || 3000;  //Using dynamically assigned port by Heroku
 var path = require('path');
 
 app.use(cors({origin: "*"}));
@@ -16,7 +16,7 @@ app.use(express.static('serverFiles')); //Specifying folder to look for files in
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.listen(process.env.PORT || port, () => {
+app.listen(port, () => {
   console.log(`Point of Sales system listening on port ${port}`)
 })
 //Connecting to database
