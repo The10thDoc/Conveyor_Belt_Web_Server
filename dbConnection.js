@@ -88,3 +88,88 @@ app.get('/updateSessionInfo', function(req, res) {
   res.send("Complete");
 });
 
+//GET from database functions
+
+app.get('/packageInfo', function(req, res) {
+  if(Object.keys(req.query).length === 0) { //If no args
+    res.send(packageInfo);
+  }
+})
+
+app.get('/sessionInfo', function(req, res) {
+  if(Object.keys(req.query).length === 0) { //If no args
+    res.send(sessionInfo);
+  }
+})
+
+//POST FUNCTIONS
+
+app.post('/addPackage', function(req, res) {
+  console.log("\nReq.body:");
+  console.log(req.body);
+
+  var packageid = req.body.packageid;
+  var stickercolor = req.body.stickercolor;
+  var timesorted = req.body.timesorted;
+
+  //Construction INSERT query
+  var command = 'INSERT INTO packageinfo VALUES(' + packageid + 
+                                                ', \'' + stickercolor + 
+                                                '\', \'' + timesorted + '\')';
+  console.log(command);
+
+  //Running query now
+  client.query(command, (err, result)=>{
+    if(!err) {
+      console.log("COMPLETE :) \n\n");
+      res.send("Completed");
+    }
+    else {
+      console.log("\nERROR:");
+      console.log(err.message);
+    }
+  })
+})
+
+app.post('/finishSession', function(req, res) {
+  console.log("\nReq.body:");
+  console.log(req.body);
+
+  var sessionid = req.body.sessionid;
+  var starttime = req.body.starttime;
+  var endtime = req.body.endtime;
+  var totalsorted = req.body.totalsorted;
+  var numredsorted = req.body.numredsorted;
+  var numgreensorted = req.body.numgreensorted;
+  var numbluesorted = req.body.numbluesorted;
+  var numyellowsorted = req.body.numyellowsorted;
+  var nummagentasorted = req.body.nummagentasorted;
+  var numcyansorted = req.body.numcyansorted;
+  var numerrors = req.body.numerrors;
+
+  //Constructing INSERT query
+  var command = 'INSERT INTO sessioninfo VALUES(' + sessionid +
+                                                ', \'' + starttime +
+                                                '\', \'' + endtime +
+                                                '\', ' + totalsorted +
+                                                ', ' + numredsorted +
+                                                ', ' + numgreensorted +
+                                                ', ' + numbluesorted +
+                                                ', ' + numyellowsorted +
+                                                ', ' + nummagentasorted +
+                                                ', ' + numcyansorted +
+                                                ', ' + numerrors + ')';
+  console.log(command);
+
+  //Running query now
+  client.query(command, (err, result)=>{
+    if(!err) {
+      console.log("COMPLETE :) \n\n");
+      res.send("Completed");
+    }
+    else {
+      console.log("\nERROR:");
+      console.log(err.message);
+    }
+  })
+})
