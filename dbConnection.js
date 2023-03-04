@@ -77,6 +77,21 @@ function updateSessionInfo() {
   });
 }
 
+/*
+function countStickerColors() {
+  client.query('SELECT * FROM packageinfo WHERE stickercolor = ',(err, res)=>{
+    if(!err) {
+      console.log("Query: sessionInfo");
+      sessionInfo = res.rows
+    }
+    else {
+        console.log("\nERROR: ");
+        console.log(err.message);
+    }
+  });
+}
+*/
+
 //GET FUNCTIONS
 app.get('/updatePackageInfo', function(req, res) {
   updatePackageInfo();
