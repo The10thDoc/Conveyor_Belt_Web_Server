@@ -127,6 +127,7 @@ function getLastPackageID() {
     }
   });
 }
+
 //TODO: Finish function to get last session ID
 function getLastSessionID() {
   client.query('SELECT MAX(sessionid) FROM sessioninfo', (err, res)=>{
@@ -143,7 +144,7 @@ function getLastSessionID() {
 
 //GET FUNCTIONS
 app.get('/', function(req, res) {
-  res.send("Hello World!")
+  res.send("Hello World!");
 })
 
 app.get('/updatePackageInfo', function(req, res) {
