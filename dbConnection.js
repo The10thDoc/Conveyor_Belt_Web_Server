@@ -115,9 +115,9 @@ function getLastPackageID() {
   client.query('SELECT MAX(packageid) FROM packageinfo', (err, res)=>{
     if(!err) {
       console.log("Query: Last package ID in packageInfo");
-      lastPackageID = parseInt(res.packageid);
+      lastPackageID = parseInt(res.max);
       console.log("\nRESPONSE INFORMATION:   ");
-      console.log(res.max);
+      console.log(res);
     }
     else {
       console.log("\nERROR: \n");
