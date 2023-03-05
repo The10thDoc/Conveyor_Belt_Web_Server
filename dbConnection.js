@@ -116,8 +116,8 @@ function getLastPackageID() {
     if(!err) {
       console.log("Query: Last package ID in packageInfo");
 
-      //var row = res[0]
-      //lastPackageID = parseInt(row.max);
+      var tempRowStorage = res.rows;
+      lastPackageID = parseInt(res.query.max);
       console.log("\nRESPONSE INFORMATION:   ");
       console.log(res);
     }
