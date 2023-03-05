@@ -116,8 +116,8 @@ function getLastPackageID() {
     if(!err) {
       console.log("Query: Last package ID in packageInfo");
 
-      var row = res[0]
-      lastPackageID = parseInt(row.max);
+      //var row = res[0]
+      //lastPackageID = parseInt(row.max);
       console.log("\nRESPONSE INFORMATION:   ");
       console.log(res);
     }
@@ -133,7 +133,7 @@ function getLastSessionID() {
   client.query('SELECT MAX(sessionid) FROM sessioninfo', (err, res)=>{
     if(!err) {
       console.log("Query: Last session ID in sessionInfo");
-      lastSessionID = parseInt(res[0]);
+      //lastSessionID = parseInt(res[0]);
     }
     else {
       console.log("\nERROR: \n");
@@ -143,10 +143,11 @@ function getLastSessionID() {
 }
 
 //GET FUNCTIONS
+/*Problematic function right now
 app.get('/', function(req, res) {
   res.send("Hello World!");
 })
-
+*/
 app.get('/updatePackageInfo', function(req, res) {
   updatePackageInfo();
   res.send("Complete");
