@@ -52,10 +52,15 @@ client.connect((err) => {
 
 var packageInfo;
 var sessionInfo;
+var lastPackageID;
+var lastSessionID;
 var desiredStickerColor;
+
 
 updatePackageInfo();
 updateSessionInfo();
+getLastPackageID();
+getLastSessionID();
 
 function updatePackageInfo() {
   client.query('SELECT * FROM packageinfo ORDER BY packageid ASC',(err, res)=>{
@@ -64,7 +69,7 @@ function updatePackageInfo() {
       packageInfo = res.rows
     }
     else {
-        console.log("\nERROR: ");
+        console.log("\nERROR: \n");
         console.log(err.message);
     }
   });
@@ -77,10 +82,18 @@ function updateSessionInfo() {
       sessionInfo = res.rows
     }
     else {
-        console.log("\nERROR: ");
+        console.log("\nERROR: \n");
         console.log(err.message);
     }
   });
+}
+
+function updatePackageID() {
+  lastPackageID = lastPackageID + 1;
+}
+
+function updateSessionID() {
+  lastSessionID = lastSessionID + 1;
 }
 
 //TODO: FINISH STICKER COLOR FUNCTION
@@ -91,12 +104,38 @@ function countStickerColors() {
       sessionInfo = res.rows
     }
     else {
-        console.log("\nERROR: ");
+        console.log("\nERROR: \n");
         console.log(err.message);
     }
   });
 }
 
+//TODO: Finish function to get last package ID
+function getLastPackageID() {
+  client.query('SELECT MAX(packageid) FROM packageinfo', (err, res)=>{
+    if(!err) {
+      console.log("Query: Last package ID in packageInfo");
+      lastPackageID = res.rows
+    }
+    else {
+      console.log("\nERROR: \n");
+      console.log(err.message);
+    }
+  });
+}
+//TODO: Finish function to get last session ID
+function getLastSessionID() {
+  client.query('SELECT MAX(sessionid) FROM sessioninfo', (err, res)=>{
+    if(!err) {
+      console.log("Query: Last session ID in sessionInfo");
+      lastSessionID = res.rows
+    }
+    else {
+      console.log("\nERROR: \n");
+      console.log(err.message);
+    }
+  });
+}
 
 //GET FUNCTIONS
 app.get('/updatePackageInfo', function(req, res) {
@@ -127,10 +166,16 @@ app.get('/sessionInfo', function(req, res) {
   }
 })
 
+app.get('/currPackageID', function(req, res) {
+  if(Object.keys(req.query).length === 0) {
+    res.send();
+  }
+})
+
 //GET version is used by ESP32
 app.get('/addScannedPackage', function(req, res) {
 
-  const packageid = req.query.packageid;
+  const packageid = lastPackageID + 1;
   const stickercolor = req.query.stickercolor;
   const timesorted = req.query.timesorted;
 
@@ -154,7 +199,7 @@ app.get('/addScannedPackage', function(req, res) {
 
   //Refreshing tables
   updatePackageInfo();
-  updateSessionInfo();
+  updatePackageID();
 })
 
 
