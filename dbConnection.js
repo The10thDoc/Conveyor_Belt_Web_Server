@@ -116,6 +116,8 @@ function getLastPackageID() {
     if(!err) {
       console.log("Query: Last package ID in packageInfo");
       lastPackageID = parseInt(res.packageid);
+      console.log("\nRESPONSE INFORMATION:   ");
+      console.log(res);
     }
     else {
       console.log("\nERROR: \n");
