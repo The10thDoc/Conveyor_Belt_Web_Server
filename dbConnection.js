@@ -127,8 +127,38 @@ app.get('/sessionInfo', function(req, res) {
   }
 })
 
-//POST FUNCTIONS
+//GET version is used by ESP32
+app.get('/addScannedPackage', function(req, res) {
+  console.log("\nReq.body:");
+  console.log(req.body);
 
+  var packageid = req.body.packageid;
+  var stickercolor = req.body.stickercolor;
+  var timesorted = req.body.timesorted;
+
+  //Construction INSERT query
+  var command = 'INSERT INTO packageinfo VALUES(' + packageid + 
+                                                ', \'' + stickercolor + 
+                                                '\', \'' + timesorted + '\')';
+  console.log(command);
+
+  //Running query now
+  client.query(command, (err, result)=>{
+    if(!err) {
+      console.log("COMPLETE :) \n\n");
+      res.send("Completed");
+    }
+    else {
+      console.log("\nERROR:");
+      console.log(err.message);
+    }
+  })
+})
+
+
+
+//POST FUNCTIONS
+//POST version used by web server text fields
 app.post('/addPackage', function(req, res) {
   console.log("\nReq.body:");
   console.log(req.body);

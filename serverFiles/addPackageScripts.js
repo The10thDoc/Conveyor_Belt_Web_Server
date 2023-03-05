@@ -1,3 +1,4 @@
+//Adding package with POST
 async function addPackageToDB() {
     
     //Get last package id
