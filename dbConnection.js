@@ -151,6 +151,10 @@ app.get('/addScannedPackage', function(req, res) {
       console.log(err.message);
     }
   })
+
+  //Refreshing tables
+  updatePackageInfo();
+  updateSessionInfo();
 })
 
 
