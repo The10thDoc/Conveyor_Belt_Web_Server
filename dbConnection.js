@@ -101,7 +101,7 @@ function countStickerColors() {
   client.query('SELECT * FROM packageinfo WHERE stickercolor = ',(err, res)=>{
     if(!err) {
       console.log("Query: sessionInfo");
-      sessionInfo = res.sessionid;
+      sessionInfo = parseInt(res.sessionid);
     }
     else {
         console.log("\nERROR: \n");
@@ -115,7 +115,7 @@ function getLastPackageID() {
   client.query('SELECT MAX(packageid) FROM packageinfo', (err, res)=>{
     if(!err) {
       console.log("Query: Last package ID in packageInfo");
-      lastPackageID = res.packageid;
+      lastPackageID = parseInt(res.packageid);
     }
     else {
       console.log("\nERROR: \n");
@@ -128,7 +128,7 @@ function getLastSessionID() {
   client.query('SELECT MAX(sessionid) FROM sessioninfo', (err, res)=>{
     if(!err) {
       console.log("Query: Last session ID in sessionInfo");
-      lastSessionID = res.sessionid;
+      lastSessionID = parseInt(res.sessionid);
     }
     else {
       console.log("\nERROR: \n");
