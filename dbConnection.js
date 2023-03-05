@@ -117,7 +117,7 @@ function getLastPackageID() {
       console.log("Query: Last package ID in packageInfo");
 
       var tempRowStorage = res.rows;
-      lastPackageID = parseInt(res.query.max);
+      //lastPackageID = parseInt(res.query.max);
       console.log("\nRESPONSE INFORMATION:   ");
       console.log(res);
     }
@@ -143,11 +143,11 @@ function getLastSessionID() {
 }
 
 //GET FUNCTIONS
-/*Problematic function right now
+
 app.get('/', function(req, res) {
   res.send("Hello World!");
 })
-*/
+
 app.get('/updatePackageInfo', function(req, res) {
   updatePackageInfo();
   res.send("Complete");
