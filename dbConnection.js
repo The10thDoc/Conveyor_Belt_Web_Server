@@ -56,7 +56,7 @@ var lastPackageID;
 var lastSessionID;
 var desiredStickerColor;
 
-
+//Initializing tables and ID trackers
 updatePackageInfo();
 updateSessionInfo();
 getLastPackageID();
@@ -66,7 +66,7 @@ function updatePackageInfo() {
   client.query('SELECT * FROM packageinfo ORDER BY packageid ASC',(err, res)=>{
     if(!err) {
       console.log("Query: packageInfo");
-      packageInfo = res.rows
+      packageInfo = res.rows;
     }
     else {
         console.log("\nERROR: \n");
@@ -79,7 +79,7 @@ function updateSessionInfo() {
   client.query('SELECT * FROM sessioninfo ORDER BY sessionid ASC',(err, res)=>{
     if(!err) {
       console.log("Query: sessionInfo");
-      sessionInfo = res.rows
+      sessionInfo = res.rows;
     }
     else {
         console.log("\nERROR: \n");
@@ -101,7 +101,7 @@ function countStickerColors() {
   client.query('SELECT * FROM packageinfo WHERE stickercolor = ',(err, res)=>{
     if(!err) {
       console.log("Query: sessionInfo");
-      sessionInfo = res.rows
+      sessionInfo = res.sessionid;
     }
     else {
         console.log("\nERROR: \n");
@@ -115,7 +115,7 @@ function getLastPackageID() {
   client.query('SELECT MAX(packageid) FROM packageinfo', (err, res)=>{
     if(!err) {
       console.log("Query: Last package ID in packageInfo");
-      lastPackageID = res.rows
+      lastPackageID = res.packageid;
     }
     else {
       console.log("\nERROR: \n");
@@ -128,7 +128,7 @@ function getLastSessionID() {
   client.query('SELECT MAX(sessionid) FROM sessioninfo', (err, res)=>{
     if(!err) {
       console.log("Query: Last session ID in sessionInfo");
-      lastSessionID = res.rows
+      lastSessionID = res.sessionid;
     }
     else {
       console.log("\nERROR: \n");
