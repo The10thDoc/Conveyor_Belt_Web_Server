@@ -129,12 +129,10 @@ app.get('/sessionInfo', function(req, res) {
 
 //GET version is used by ESP32
 app.get('/addScannedPackage', function(req, res) {
-  console.log("\nReq.body:");
-  console.log(req.body);
 
-  var packageid = req.body.packageid;
-  var stickercolor = req.body.stickercolor;
-  var timesorted = req.body.timesorted;
+  const packageid = req.query.packageid;
+  const stickercolor = req.query.stickercolor;
+  const timesorted = req.query.timesorted;
 
   //Construction INSERT query
   var command = 'INSERT INTO packageinfo VALUES(' + packageid + 
