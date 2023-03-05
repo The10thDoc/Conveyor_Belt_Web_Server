@@ -116,8 +116,8 @@ function getLastPackageID() {
     if(!err) {
       console.log("Query: Last package ID in packageInfo");
 
-      //var row = res[0];
-      lastPackageID = parseInt(res[0].max);
+      var row = res[0]
+      lastPackageID = parseInt(row.max);
       console.log("\nRESPONSE INFORMATION:   ");
       console.log(res);
     }
@@ -132,7 +132,7 @@ function getLastSessionID() {
   client.query('SELECT MAX(sessionid) FROM sessioninfo', (err, res)=>{
     if(!err) {
       console.log("Query: Last session ID in sessionInfo");
-      lastSessionID = parseInt(res[0].max);
+      lastSessionID = parseInt(res[0]);
     }
     else {
       console.log("\nERROR: \n");
