@@ -32,15 +32,8 @@ const client = new Client({
     rejectUnauthorized: false
   }
 })
-/*
-const client = new Client({
-  host: '',
-  database: '',
-  user: '',
-  port: ,
-  password: '',
-})
-*/
+
+//Connecting to PostgreSQL database
 client.connect((err) => {
   if (err) {
     console.error('connection error', err.stack)
@@ -52,8 +45,6 @@ client.connect((err) => {
 
 var packageInfo;
 var sessionInfo;
-var lastPackageID;
-var lastSessionID;
 var desiredStickerColor;
 
 //Initializing tables and ID trackers
@@ -88,6 +79,7 @@ function updateSessionInfo() {
   });
 }
 
+/*
 function updatePackageID() {
   lastPackageID = lastPackageID + 1;
 }
@@ -95,6 +87,7 @@ function updatePackageID() {
 function updateSessionID() {
   lastSessionID = lastSessionID + 1;
 }
+*/
 
 //TODO: FINISH STICKER COLOR FUNCTION
 function countStickerColors() {
@@ -110,7 +103,8 @@ function countStickerColors() {
   });
 }
 
-//TODO: Finish function to get last package ID
+//NOT NECESSARY:  Solved w/ SERIAL in PostgreSQL database
+/*
 function getLastPackageID() {
   client.query('SELECT MAX(packageid) FROM packageinfo', (err, res)=>{
     if(!err) {
@@ -141,9 +135,13 @@ function getLastSessionID() {
     }
   });
 }
+*/
+
+//-------------------------------------------------------------------------------------------------------------------
+//-------------------------------------------------------------------------------------------------------------------
+//-------------------------------------------------------------------------------------------------------------------
 
 //GET FUNCTIONS
-
 app.get('/', function(req, res) {
   res.send("Hello World!");
 })
@@ -159,12 +157,15 @@ app.get('/updateSessionInfo', function(req, res) {
 });
 
 //GET from database functions
-
 app.get('/packageInfo', function(req, res) {
   if(Object.keys(req.query).length === 0) { //If no args
     res.send(packageInfo);
   }
 })
+
+//-------------------------------------------------------------------------------------------------------------------
+//-------------------------------------------------------------------------------------------------------------------
+//-------------------------------------------------------------------------------------------------------------------
 
 //TODO: If user wants specific sessionID
 app.get('/sessionInfo', function(req, res) {
@@ -175,23 +176,21 @@ app.get('/sessionInfo', function(req, res) {
 
   }
 })
-
+/*
 app.get('/currPackageID', function(req, res) {
   if(Object.keys(req.query).length === 0) {
     res.send();
   }
 })
-
+*/
 //GET version is used by ESP32
 app.get('/addScannedPackage', function(req, res) {
 
-  const packageid = lastPackageID + 1;
   const stickercolor = req.query.stickercolor;
   const timesorted = req.query.timesorted;
 
   //Construction INSERT query
-  var command = 'INSERT INTO packageinfo VALUES(' + packageid + 
-                                                ', \'' + stickercolor + 
+  var command = 'INSERT INTO packageinfo (stickercolor, timesorted) VALUES(\'' + stickercolor + 
                                                 '\', \'' + timesorted + '\')';
   console.log(command);
 
@@ -220,13 +219,11 @@ app.post('/addPackage', function(req, res) {
   console.log("\nReq.body:");
   console.log(req.body);
 
-  var packageid = req.body.packageid;
   var stickercolor = req.body.stickercolor;
   var timesorted = req.body.timesorted;
 
   //Construction INSERT query
-  var command = 'INSERT INTO packageinfo VALUES(' + packageid + 
-                                                ', \'' + stickercolor + 
+  var command = 'INSERT INTO packageinfo (stickercolor, timesorted) VALUES(\'' + stickercolor + 
                                                 '\', \'' + timesorted + '\')';
   console.log(command);
 
@@ -247,7 +244,6 @@ app.post('/finishSession', function(req, res) {
   console.log("\nReq.body:");
   console.log(req.body);
 
-  var sessionid = req.body.sessionid;
   var starttime = req.body.starttime;
   var endtime = req.body.endtime;
   var totalsorted = req.body.totalsorted;
@@ -260,8 +256,7 @@ app.post('/finishSession', function(req, res) {
   var numerrors = req.body.numerrors;
 
   //Constructing INSERT query
-  var command = 'INSERT INTO sessioninfo VALUES(' + sessionid +
-                                                ', \'' + starttime +
+  var command = 'INSERT INTO sessioninfo (starttime, endtime, totalsorted, numredsorted, numgreensorted, numbluesorted, numyellowsorted, nummagentasorted, numcyansorted, numerrors) VALUES(\'' + starttime +
                                                 '\', \'' + endtime +
                                                 '\', ' + totalsorted +
                                                 ', ' + numredsorted +
