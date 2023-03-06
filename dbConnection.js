@@ -1,7 +1,7 @@
 /*
 Author:  Harrison Kuhn
 Use:  ECEN 404 Capstone Project
-Team: 59: Motor conveyor for package discribution
+Team: 59 - Motor conveyor for package discribution
 */
 
 const express = require('express');
@@ -77,16 +77,6 @@ function updateSessionInfo() {
   });
 }
 
-/*
-function updatePackageID() {
-  lastPackageID = lastPackageID + 1;
-}
-
-function updateSessionID() {
-  lastSessionID = lastSessionID + 1;
-}
-*/
-
 //TODO: FINISH STICKER COLOR FUNCTION
 function countStickerColors() {
   client.query('SELECT * FROM packageinfo WHERE stickercolor = ',(err, res)=>{
@@ -120,7 +110,6 @@ function getLastPackageID() {
   });
 }
 
-//TODO: Finish function to get last session ID
 function getLastSessionID() {
   client.query('SELECT MAX(sessionid) FROM sessioninfo', (err, res)=>{
     if(!err) {
@@ -162,10 +151,6 @@ app.get('/packageInfo', function(req, res) {
   }
 })
 
-//-------------------------------------------------------------------------------------------------------------------
-//-------------------------------------------------------------------------------------------------------------------
-//-------------------------------------------------------------------------------------------------------------------
-
 //TODO: If user wants specific sessionID
 app.get('/sessionInfo', function(req, res) {
   if(Object.keys(req.query).length === 0) { //If no args
@@ -175,13 +160,7 @@ app.get('/sessionInfo', function(req, res) {
 
   }
 })
-/*
-app.get('/currPackageID', function(req, res) {
-  if(Object.keys(req.query).length === 0) {
-    res.send();
-  }
-})
-*/
+
 //GET version is used by ESP32
 app.get('/addScannedPackage', function(req, res) {
 
@@ -209,7 +188,9 @@ app.get('/addScannedPackage', function(req, res) {
   updatePackageInfo();
 })
 
-
+//-------------------------------------------------------------------------------------------------------------------
+//-------------------------------------------------------------------------------------------------------------------
+//-------------------------------------------------------------------------------------------------------------------
 
 //POST FUNCTIONS
 //POST version used by web server text fields
