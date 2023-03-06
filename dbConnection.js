@@ -142,10 +142,11 @@ function getLastSessionID() {
 //-------------------------------------------------------------------------------------------------------------------
 
 //GET FUNCTIONS
+/*
 app.get('/', function(req, res) {
   res.send("Hello World!");
 })
-
+*/
 app.get('/updatePackageInfo', function(req, res) {
   updatePackageInfo();
   res.send("Complete");
