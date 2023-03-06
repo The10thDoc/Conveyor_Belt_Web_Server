@@ -207,7 +207,6 @@ app.get('/addScannedPackage', function(req, res) {
 
   //Refreshing tables
   updatePackageInfo();
-  updatePackageID();
 })
 
 
