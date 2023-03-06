@@ -140,11 +140,11 @@ function getLastSessionID() {
 //-------------------------------------------------------------------------------------------------------------------
 
 //GET FUNCTIONS
-/*
+
 app.get('/', function(req, res) {
-  res.send("Hello World!");
+  res.send("Hello ECEN 404!");
 })
-*/
+
 app.get('/updatePackageInfo', function(req, res) {
   updatePackageInfo();
   res.send("Complete");
