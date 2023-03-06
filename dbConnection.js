@@ -50,8 +50,6 @@ var desiredStickerColor;
 //Initializing tables and ID trackers
 updatePackageInfo();
 updateSessionInfo();
-getLastPackageID();
-getLastSessionID();
 
 function updatePackageInfo() {
   client.query('SELECT * FROM packageinfo ORDER BY packageid ASC',(err, res)=>{
