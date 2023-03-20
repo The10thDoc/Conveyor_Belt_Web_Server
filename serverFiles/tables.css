@@ -1,3 +1,15 @@
+* {
+    font-family: Tahoma, Verdana, sans-serif;
+}
+body {
+    background-color: #e66b77;
+    font-size: 20px;
+}
+
+h1 {
+    font-size: 40px;
+}
+
 table {
     border: 2px solid;
     border-collapse: collapse;

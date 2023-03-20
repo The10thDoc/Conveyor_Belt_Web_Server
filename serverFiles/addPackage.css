@@ -1,10 +1,25 @@
+* {
+    font-family: Tahoma, Verdana, sans-serif;
+}
 body {
-    background-color: #b0515a;
+    background-color: #e66b77;
+    font-size: 20px;
+}
+
+h1 {
+    font-size: 40px;
 }
 
 .grid-container {
     display: grid;
     grid-template-columns: auto;
     justify-content: center;
-    align-content: space-evenly;
+    align-content: center;
+}
+
+.form-control {
+    font-size: 20px;
+}
+.btn {
+    font-size: 20px;
 }
