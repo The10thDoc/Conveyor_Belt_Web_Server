@@ -31,8 +31,7 @@ async function addPackageToDB() {
 
     document.getElementById("stickerColor").value = '';
     document.getElementById("timeSorted").value = '';
-    document.getElementById("alert").style.display = 'block';
-    document.getElementById("closeAlert").style.display = 'inline';
+    alert("Success!  Package added to database.")
 }
 
 
@@ -40,6 +39,12 @@ function searchFunction(x) {
     document.getElementById(x).focus();
 }
 
+/*
 function closePopup(x) {
-    document.getElementById(x).style.display = 'none';
+    document.getElementById(x).display = 'none';
 }
+
+function givePopupBox() {
+    alert("Success!  Package added to database.")
+}
+*/
