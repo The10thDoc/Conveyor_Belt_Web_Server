@@ -5,3 +5,4 @@ This repository was created as part of my ECEN 403/404 Senior Design year-long p
 - Connect to a PostgreSQL database hosted through Heroku
 - Display tables on website from database
 - Process queries to add rows to tables
+- Process HTTPS URL requests to add rows to tables
