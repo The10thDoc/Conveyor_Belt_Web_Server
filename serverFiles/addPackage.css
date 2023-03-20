@@ -1,25 +1,10 @@
-/*
-.alert {
-    padding: 20px;
-    background-color: #a0f88b;
-    color: #000000;
-    margin-bottom: 30px;
-    display: none;
+body {
+    background-color: #b0515a;
 }
 
-.closeAlert {
-    margin-left: 15px;
-    color: #000000;
-    font-weight: bolder;
-    float: right;
-    font-size: 24px;
-    line-height: 20px;
-    cursor: pointer;
-    transition: 0.25s;
-    display: none;
+.grid-container {
+    display: grid;
+    grid-template-columns: auto;
+    justify-content: center;
+    align-content: space-evenly;
 }
-
-.closeAlert:hover {
-    color: red;
-}
-*/
