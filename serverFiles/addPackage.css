@@ -3,6 +3,7 @@
     background-color: #a0f88b;
     color: #000000;
     margin-bottom: 30px;
+    display: none;
 }
 
 .closeAlert {
@@ -14,6 +15,7 @@
     line-height: 20px;
     cursor: pointer;
     transition: 0.25s;
+    display: none;
 }
 
 .closeAlert:hover {
