@@ -2,7 +2,8 @@
     font-family: Tahoma, Verdana, sans-serif;
 }
 body {
-    background-color: #e68f98;
+    background-color: #30323d;
+    color: #eaeaea;
     font-size: 20px;
 }
 
@@ -11,7 +12,7 @@ body {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: black;
+    background-color: #1d7874;
 }
 
 li {
@@ -21,7 +22,7 @@ li {
 li a {
     display: block;
     text-align: center;
-    color: white;
+    color: #30323d;
     padding: 14px 16px;
     text-decoration: none;
 }
