@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="finishSession.css" id="style"></link>
+        <script src="finishSessionScripts.js"></script>
+        <title>Finish Session</title>
+    </head>
+    <ul class="horizontal">
+        <li>
+            <a href="tables.html">Tables</a>
+        </li>
+        <li>
+            <a href="addPackage.html">Add Package</a>
+        </li>
+        <li>
+            <a class="active" href="finishSession.html">Finish Session</a>
+        </li>
+    </ul>
+    <h1 class="packageText">Finish Session</h1>
+    <body>
+        <div class="grid-container">
+            <div>
+                <p class="sessionSubtext">
+                    WARNING:  Finishing the session will remove all packages in the PackageInfo table and store their data in a row in the
+                    SessionInfo table!  
+                </p>
+            </div>
+
+            <div id="finishSession">
+                <p>
+                    <button type="button" id="sessionButton" class="btn btn-primary btn-lg" onclick="completeSession()" tabindex="6">Finish Session and Merge Package Data</button>
+                </p>
+            </div>
+        </div>
+    </body>
+</html>
