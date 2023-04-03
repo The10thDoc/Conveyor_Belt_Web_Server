@@ -31,11 +31,15 @@ body {
 }
 
 .package_sheet {
+    width: auto;
+    max-height: 70%;
+    margin: auto;
     text-align: center;
 }
 
 .session_sheet {
     width: auto;
+    max-height: 70%;
     margin: auto;
     text-align: center;
 }
@@ -47,7 +51,7 @@ li {
 li a {
     display: block;
     text-align: center;
-    font-size: 16px;
+    font-size: 18px;
     color: #eaeaea;
     padding: 10px 12px;
     text-decoration: none;
