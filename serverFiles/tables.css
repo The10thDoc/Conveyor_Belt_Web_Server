@@ -5,6 +5,7 @@ body {
     background-color: #30323d;
     color: #eaeaea;
     font-size: 20px;
+    text-align: center
 }
 
 .horizontal {
@@ -19,6 +20,28 @@ body {
     background-color: #30323d;
 }
 
+.table1 {
+    overflow-y: scroll;
+    width: 100%;
+}
+
+.table2 {
+    overflow-y: scroll;
+    width: 100%;
+}
+
+.package_sheet {
+    width: auto;
+    margin: auto;
+    text-align: center;
+}
+
+.session_sheet {
+    width: auto;
+    margin: auto;
+    text-align: center;
+}
+
 li {
     float: left;
 }
@@ -26,7 +49,7 @@ li {
 li a {
     display: block;
     text-align: center;
-    font-size: 15px;
+    font-size: 16px;
     color: #eaeaea;
     padding: 10px 12px;
     text-decoration: none;
@@ -43,5 +66,6 @@ table {
 
 td, th {
     text-align: center;
-    border: 2px solid;
+    border: 3px solid;
+    padding: 2px 2px 2px 2px;
   }

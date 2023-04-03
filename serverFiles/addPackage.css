@@ -5,6 +5,7 @@ body {
     background-color: #30323d;
     color: #eaeaea;
     font-size: 20px;
+    text-align: center;
 }
 
 .horizontal {
@@ -25,7 +26,7 @@ li {
 li a {
     display: block;
     text-align: center;
-    font-size: 15px;
+    font-size: 16px;
     color: #eaeaea;
     padding: 10px 12px;
     text-decoration: none;
