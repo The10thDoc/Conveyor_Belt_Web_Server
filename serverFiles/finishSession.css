@@ -13,6 +13,7 @@ body {
     margin: 0;
     padding: 0;
     overflow: hidden;
+    width: 100%;
     background-color: #db162f;
 }
 
@@ -21,6 +22,7 @@ body {
 }
 li {
     float: left;
+    width: 33.33%;
 }
 
 li a {

@@ -13,6 +13,7 @@ body {
     margin: 0;
     padding: 0;
     overflow: hidden;
+    width: 100%;
     background-color: #db162f;
 }
 
@@ -32,23 +33,22 @@ body {
 
 .package_sheet {
     width: auto;
-    max-height: 70%;
     margin: auto;
     text-align: center;
 }
 
 .session_sheet {
     width: auto;
-    max-height: 70%;
     margin: auto;
     text-align: center;
 }
 
 li {
     float: left;
+    width: 33.33%;
 }
 
-li a {
+li a{
     display: block;
     text-align: center;
     font-size: 18px;
