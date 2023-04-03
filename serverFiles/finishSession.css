@@ -14,6 +14,8 @@ body {
     padding: 0;
     overflow: hidden;
     width: 100%;
+    position: fixed;
+    top: 0;
     background-color: #db162f;
 }
 
@@ -36,6 +38,7 @@ li a {
 
 h1 {
     font-size: 40px;
+    margin-top: 50px;
 }
 
 .grid-container {
