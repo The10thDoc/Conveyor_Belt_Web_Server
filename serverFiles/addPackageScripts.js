@@ -21,7 +21,7 @@ async function addPackageToDB() {
         body: JSON.stringify(newPackage)
     })
 
-    const packageTableResponse = await fetch('/updatepackageInfo', {
+    const packageTableResponse = await fetch('/updatePackageInfo', {
         method: 'GET',
         headers: {
             'Accept': 'application/json',

@@ -85,5 +85,21 @@ async function completeSession() {
         body: JSON.stringify(newSession)
     });
 
+    const packageTableResponse = await fetch('/updatepackageInfo', {
+        method: 'GET',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        }
+    });
+
+    const sessionTableResponse = await fetch('/updateSessionInfo', {
+        method: 'GET',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        }
+    });
+
     alert("Success!  Session finished and package table cleared.")
 }
