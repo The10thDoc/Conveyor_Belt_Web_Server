@@ -34,18 +34,18 @@ async function completeSession() {
         switch(String(data[i].stickercolor)) {
             case "red":
                 redCount = data[i].count;
-                totalCount = totalCount + 1;
+                totalCount = totalCount + redCount;
                 break;
             case "green":
                 greenCount = data[i].count;
-                totalCount = totalCount + 1;
+                totalCount = totalCount + greenCount;
                 break;
             case "blue":
                 blueCount = data[i].count;
-                totalCount = totalCount + 1;
+                totalCount = totalCount + blueCount;
                 break;
             default:
-                errorCount = errorCount + 1;
+                errorCount = errorCount + data[i].count;
         }
     }
 
