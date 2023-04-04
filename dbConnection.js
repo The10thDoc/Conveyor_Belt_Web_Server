@@ -241,7 +241,7 @@ app.post('/finishSession', function(req, res) {
   var numerrors = req.body.numerrors;
 
   //Constructing INSERT query
-  var command = 'INSERT INTO sessioninfo (starttime, endtime, totalsorted, numredsorted, numgreensorted, numbluesorted, numyellowsorted, nummagentasorted, numcyansorted, numerrors) VALUES(\'' + starttime +
+  var command = 'INSERT INTO sessioninfo (starttime, endtime, totalsorted, numredsorted, numgreensorted, numbluesorted, numerrors) VALUES(\'' + starttime +
                                                 '\', \'' + endtime +
                                                 '\', ' + totalsorted +
                                                 ', ' + numredsorted +
