@@ -27,6 +27,7 @@ async function completeSession() {
 
     //Getting json response and placing in array
     const data = await colorGetResponse.json();
+    console.log(data);
 
     //Setting variables for placing in finished session
     for(var i=0; i < data.length; i++) {
