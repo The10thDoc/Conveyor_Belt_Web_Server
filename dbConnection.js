@@ -56,6 +56,7 @@ function updatePackageInfo() {
   client.query('SELECT * FROM packageinfo ORDER BY packageid ASC',(err, res)=>{
     if(!err) {
       console.log("Query: packageInfo");
+      console.log(res.rows);
       packageInfo = res.rows;
     }
     else {
@@ -160,19 +161,19 @@ app.get('/colorCount', function(req, res) {
   countStickerColors();
 
   if(Object.keys(req.query).length === 0) { //If no args
-    console.log(colorInfo);
     res.send(colorInfo);
   }
 })
 
-app.get('/timeFrame'), function(req, res) {
+app.get('/timeFrame', function(req, res) {
   getTimes();
+  
   if(Object.keys(req.query).length === 0) { //If no args
     console.log(timeFrame);
     res.send(timeFrame);
   }
 
-}
+})
 //GET version is used by ESP32
 app.get('/addScannedPackage', function(req, res) {
 
