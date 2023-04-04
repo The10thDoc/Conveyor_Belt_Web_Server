@@ -82,7 +82,9 @@ function countStickerColors() {
   client.query('SELECT stickercolor, COUNT(stickercolor) FROM packageinfo GROUP BY stickercolor',(err, res)=>{
     if(!err) {
       console.log("Query: Sticker Color Count");
+      console.log(res);
       colorInfo = res.rows;
+      //colorInfo = JSON.parse(res);
     }
     else {
         console.log("\nERROR: \n");
@@ -95,7 +97,9 @@ function getTimes() {
   client.query('SELECT MIN(timesorted), MAX(timesorted) FROM packageinfo',(err, res)=>{
     if(!err) {
       console.log("Query: Start and End Time");
+      console.log(res);
       timeFrame = res.rows;
+      //timeFrame = JSON.parse(res);
     }
     else {
         console.log("\nERROR: \n");
