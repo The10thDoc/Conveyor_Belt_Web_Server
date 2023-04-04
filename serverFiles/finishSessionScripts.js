@@ -12,9 +12,9 @@ async function completeSession() {
     var timeEnd;
     var totalCount = 0;
     var errorCount = 0;
-    var redCount;
-    var greenCount;
-    var blueCount;
+    var redCount = 0;
+    var greenCount = 0;
+    var blueCount = 0;
 
     //Getting color and error counts
     const colorGetResponse = await fetch('/colorCount', {
