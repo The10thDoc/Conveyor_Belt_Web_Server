@@ -46,6 +46,7 @@ client.connect((err) => {
 var packageInfo;
 var sessionInfo;
 var colorInfo;
+var timeFrame;
 
 //Initializing tables and ID trackers
 updatePackageInfo();
@@ -77,7 +78,6 @@ function updateSessionInfo() {
   });
 }
 
-//TODO: FINISH STICKER COLOR FUNCTION
 function countStickerColors() {
   client.query('SELECT stickercolor, COUNT(stickercolor) FROM packageinfo GROUP BY stickercolor',(err, res)=>{
     if(!err) {
@@ -91,38 +91,32 @@ function countStickerColors() {
   });
 }
 
-//NOT NECESSARY:  Solved w/ SERIAL in PostgreSQL database
-/*
-function getLastPackageID() {
-  client.query('SELECT MAX(packageid) FROM packageinfo', (err, res)=>{
+function getTimes() {
+  client.query('SELECT MIN(timesorted), MAX(timesorted) FROM packageinfo',(err, res)=>{
     if(!err) {
-      console.log("Query: Last package ID in packageInfo");
-
-      var tempRowStorage = res.rows;
-      //lastPackageID = parseInt(res.query.max);
-      console.log("\nRESPONSE INFORMATION:   ");
-      console.log(res);
+      console.log("Query: Start and End Time");
+      timeFrame = res.rows;
     }
     else {
-      console.log("\nERROR: \n");
-      console.log(err.message);
+        console.log("\nERROR: \n");
+        console.log(err.message);
+    }
+    });
+}
+
+
+function clearPackages() {
+  client.query('DELETE FROM packageinfo',(err, res)=> {
+    if(!err) {
+      console.log("Deleted all packages");
+    }
+    else {
+        console.log("\nERROR: \n");
+        console.log(err.message);
     }
   });
 }
 
-function getLastSessionID() {
-  client.query('SELECT MAX(sessionid) FROM sessioninfo', (err, res)=>{
-    if(!err) {
-      console.log("Query: Last session ID in sessionInfo");
-      //lastSessionID = parseInt(res[0]);
-    }
-    else {
-      console.log("\nERROR: \n");
-      console.log(err.message);
-    }
-  });
-}
-*/
 
 //-------------------------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------------------------
@@ -156,9 +150,6 @@ app.get('/sessionInfo', function(req, res) {
   if(Object.keys(req.query).length === 0) { //If no args
     res.send(sessionInfo);
   }
-  else {
-
-  }
 })
 
 app.get('/colorCount', function(req, res) {
@@ -167,9 +158,15 @@ app.get('/colorCount', function(req, res) {
   if(Object.keys(req.query).length === 0) { //If no args
     res.send(colorInfo);
   }
-
 })
 
+app.get('/timeFrame'), function(req, res) {
+  getTimes();
+  if(Object.keys(req.query).length === 0) { //If no args
+    res.send(timeFrame);
+  }
+
+}
 //GET version is used by ESP32
 app.get('/addScannedPackage', function(req, res) {
 
@@ -260,5 +257,7 @@ app.post('/finishSession', function(req, res) {
       console.log("\nERROR:");
       console.log(err.message);
     }
-  })
+  });
+
+  clearPackages();
 })
