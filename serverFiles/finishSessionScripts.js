@@ -32,6 +32,8 @@ async function completeSession() {
     //Setting variables for placing in finished session
     for(var i=0; i < data.length; i++) {
         //Checking sticker color count
+        console.log(data[i].stickercolor);
+        console.log(data[i].count);
         switch(data[i].stickercolor) {
             case "red":
                 redCount = data[i].count;
