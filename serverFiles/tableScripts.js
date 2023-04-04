@@ -44,9 +44,6 @@ async function createSessionSheet() {
     var numredsorted;
     var numgreensorted;
     var numbluesorted;
-    var numyellowsorted;
-    var nummagentasorted;
-    var numcyansorted;
     var numerrors;
 
     //Query packageInfo table
@@ -73,9 +70,6 @@ async function createSessionSheet() {
         numredsorted = data[i].numredsorted;
         numgreensorted = data[i].numgreensorted;
         numbluesorted = data[i].numbluesorted;
-        numyellowsorted = data[i].numyellowsorted;
-        nummagentasorted = data[i].nummagentasorted;
-        numcyansorted = data[i].numcyansorted;
         numerrors = data[i].numerrors;
 
         rowText = ' \
@@ -86,9 +80,6 @@ async function createSessionSheet() {
         <td>' + numredsorted + '</td> \
         <td>' + numgreensorted + '</td> \
         <td>' + numbluesorted + '</td> \
-        <td>' + numyellowsorted + '</td> \
-        <td>' + nummagentasorted + '</td> \
-        <td>' + numcyansorted + '</td> \
         <td>' + numerrors + '</td>';
 
         tr.innerHTML = rowText;

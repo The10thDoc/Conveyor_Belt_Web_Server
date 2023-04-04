@@ -45,7 +45,7 @@ client.connect((err) => {
 
 var packageInfo;
 var sessionInfo;
-var desiredStickerColor;
+var colorInfo;
 
 //Initializing tables and ID trackers
 updatePackageInfo();
@@ -79,10 +79,10 @@ function updateSessionInfo() {
 
 //TODO: FINISH STICKER COLOR FUNCTION
 function countStickerColors() {
-  client.query('SELECT * FROM packageinfo WHERE stickercolor = ',(err, res)=>{
+  client.query('SELECT stickercolor, COUNT(stickercolor) FROM packageinfo GROUP BY stickercolor',(err, res)=>{
     if(!err) {
-      console.log("Query: sessionInfo");
-      sessionInfo = parseInt(res.sessionid);
+      console.log("Query: Sticker Color Count");
+      colorInfo = res.rows;
     }
     else {
         console.log("\nERROR: \n");
@@ -161,6 +161,15 @@ app.get('/sessionInfo', function(req, res) {
   }
 })
 
+app.get('/colorCount', function(req, res) {
+  countStickerColors();
+
+  if(Object.keys(req.query).length === 0) { //If no args
+    res.send(colorInfo);
+  }
+
+})
+
 //GET version is used by ESP32
 app.get('/addScannedPackage', function(req, res) {
 
@@ -229,9 +238,6 @@ app.post('/finishSession', function(req, res) {
   var numredsorted = req.body.numredsorted;
   var numgreensorted = req.body.numgreensorted;
   var numbluesorted = req.body.numbluesorted;
-  var numyellowsorted = req.body.numyellowsorted;
-  var nummagentasorted = req.body.nummagentasorted;
-  var numcyansorted = req.body.numcyansorted;
   var numerrors = req.body.numerrors;
 
   //Constructing INSERT query
@@ -241,9 +247,6 @@ app.post('/finishSession', function(req, res) {
                                                 ', ' + numredsorted +
                                                 ', ' + numgreensorted +
                                                 ', ' + numbluesorted +
-                                                ', ' + numyellowsorted +
-                                                ', ' + nummagentasorted +
-                                                ', ' + numcyansorted +
                                                 ', ' + numerrors + ')';
   console.log(command);
 
