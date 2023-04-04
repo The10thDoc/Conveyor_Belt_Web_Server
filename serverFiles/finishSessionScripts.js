@@ -27,14 +27,14 @@ async function completeSession() {
 
     //Getting json response and placing in array
     const data = await colorGetResponse.json();
-    console.log(data);
+    //console.log(data);
 
     //Setting variables for placing in finished session
     for(var i=0; i < data.length; i++) {
         //Checking sticker color count
-        console.log(data[i].stickercolor);
-        console.log(data[i].count);
-        switch(data[i].stickercolor) {
+        //console.log(data[i].stickercolor);
+        //console.log(data[i].count);
+        switch(String(data[i].stickercolor)) {
             case "red":
                 redCount = data[i].count;
                 totalCount = totalCount + 1;
@@ -51,6 +51,7 @@ async function completeSession() {
                 errorCount = errorCount + 1;
         }
     }
+    console.log(errorCount);
 
     //Getting start and end times from database
     const timeGetResponse = await fetch('/timeFrame', {
