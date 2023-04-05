@@ -167,7 +167,7 @@ app.get('/colorCount', function(req, res) {
 
 app.get('/timeFrame', function(req, res) {
   getTimes();
-  
+
   if(Object.keys(req.query).length === 0) { //If no args
     console.log(timeFrame);
     res.send(timeFrame);
