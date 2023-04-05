@@ -34,15 +34,15 @@ async function completeSession() {
         switch(String(data[i].stickercolor)) {
             case "red":
                 redCount = data[i].count;
-                totalCount = totalCount + int(redCount);
+                totalCount = String(int(totalCount) + int(redCount));
                 break;
             case "green":
                 greenCount = data[i].count;
-                totalCount = totalCount + int(greenCount);
+                totalCount = String(int(totalCount) + int(greenCount));
                 break;
             case "blue":
                 blueCount = data[i].count;
-                totalCount = totalCount + int(blueCount);
+                totalCount = String(int(totalCount) + int(blueCount));
                 break;
             default:
                 errorCount = errorCount + data[i].count;
