@@ -47,6 +47,7 @@ var packageInfo;
 var sessionInfo;
 var colorInfo;
 var timeFrame;
+var numPackages;
 
 //Initializing tables and ID trackers
 updatePackageInfo();
@@ -122,6 +123,19 @@ function clearPackages() {
   });
 }
 
+function countPackages() {
+  client.query('SELECT COUNT(*) FROM PackageInfo', (err, res)=> {
+    if(!err) {
+      console.log("Counted packages in PackageInfo");
+      numPackages = res.rows;
+    }
+    else {
+      console.log("\nERROR: \n");
+      console.timeLog(err.message);
+    }
+  });
+}
+
 
 //-------------------------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------------------------
@@ -147,6 +161,13 @@ app.get('/updateSessionInfo', function(req, res) {
 app.get('/packageInfo', function(req, res) {
   if(Object.keys(req.query).length === 0) { //If no args
     res.send(packageInfo);
+  }
+})
+
+app.get('/packageCount', function(req, res) {
+  countPackages();
+  if(Object.keys(req.query).length === 0) {
+    res.send(numPackages);
   }
 })
 

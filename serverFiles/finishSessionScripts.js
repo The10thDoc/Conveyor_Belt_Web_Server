@@ -34,20 +34,33 @@ async function completeSession() {
         switch(String(data[i].stickercolor)) {
             case "red":
                 redCount = data[i].count;
-                totalCount = int(totalCount) + int(redCount);
+                //totalCount = totalCount + redCount;
                 break;
             case "green":
                 greenCount = data[i].count;
-                totalCount = int(totalCount) + int(greenCount);
+                //totalCount = totalCount + greenCount;
                 break;
             case "blue":
                 blueCount = data[i].count;
-                totalCount = int(totalCount) + int(blueCount);
+                //totalCount = totalCount + blueCount;
                 break;
             default:
                 errorCount = errorCount + data[i].count;
         }
     }
+
+    //Getting total package count
+    const packageCountGetResponse = await fetch('/packageCount', {
+        method: 'GET',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        }
+    });
+
+    const data_package = await packageCountGetResponse.json();
+
+    totalCount = data[0].count - errorCount;
 
     //Getting start and end times from database
     const timeGetResponse = await fetch('/timeFrame', {
