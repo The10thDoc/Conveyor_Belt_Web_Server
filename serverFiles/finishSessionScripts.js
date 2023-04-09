@@ -60,7 +60,7 @@ async function completeSession() {
 
     const data_package = await packageCountGetResponse.json();
 
-    totalCount = data[0].count - errorCount;
+    totalCount = data_package[0].count - errorCount;
 
     //Getting start and end times from database
     const timeGetResponse = await fetch('/timeFrame', {
