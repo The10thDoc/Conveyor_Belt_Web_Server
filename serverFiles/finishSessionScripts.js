@@ -45,7 +45,7 @@ async function completeSession() {
                 //totalCount = totalCount + blueCount;
                 break;
             default:
-                errorCount = errorCount + data[i].count;
+                errorCount = int(errorCount) + int(data[i].count);
         }
     }
 
