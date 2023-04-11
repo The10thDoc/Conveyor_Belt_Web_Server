@@ -32,15 +32,15 @@ async function completeSession() {
     for(var i=0; i < data.length; i++) {
         //Checking sticker color count
         switch(String(data[i].stickercolor)) {
-            case "red":
+            case "RED":
                 redCount = data[i].count;
                 //totalCount = totalCount + redCount;
                 break;
-            case "green":
+            case "GREEN":
                 greenCount = data[i].count;
                 //totalCount = totalCount + greenCount;
                 break;
-            case "blue":
+            case "BLUE":
                 blueCount = data[i].count;
                 //totalCount = totalCount + blueCount;
                 break;
@@ -60,7 +60,7 @@ async function completeSession() {
 
     const data_package = await packageCountGetResponse.json();
 
-    totalCount = data_package[0].count - errorCount;
+    totalCount = data_package[0].count;
 
     //Getting start and end times from database
     const timeGetResponse = await fetch('/timeFrame', {
