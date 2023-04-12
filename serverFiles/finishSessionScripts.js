@@ -33,22 +33,24 @@ async function completeSession() {
         //Checking sticker color count
         switch(String(data[i].stickercolor)) {
             case "RED":
-                redCount = Integer.ParseInt(data[i].count);
+                redCount = data[i].count;
                 //totalCount = totalCount + redCount;
                 break;
             case "GREEN":
-                greenCount = Integer.ParseInt(data[i].count);
+                greenCount = data[i].count;
                 //totalCount = totalCount + greenCount;
                 break;
             case "BLUE":
-                blueCount = Integer.ParseInt(data[i].count);
+                blueCount = data[i].count;
                 //totalCount = totalCount + blueCount;
                 break;
             default:
-                errorCount = Integer.ParseInt(errorCount) + Integer.ParseInt(data[i].count);
+                errorCount = data[i].count;
         }
     }
 
+
+    var totalCountedInt = Integer.ParseInt(redCount) + Integer.ParseInt(greenCount) + Integer.ParseInt(blueCount) + Integer.ParseInt(errorCount);
     //Getting total package count
     const packageCountGetResponse = await fetch('/packageCount', {
         method: 'GET',
@@ -81,7 +83,8 @@ async function completeSession() {
     const newSession = {
         starttime:      timeStart,
         endtime:        timeEnd,
-        totalsorted:    totalCount,
+        totalSorted:    totalCountedInt,
+        //totalsorted:    totalCount,
         numredsorted:   redCount,
         numgreensorted: greenCount,
         numbluesorted:  blueCount,
