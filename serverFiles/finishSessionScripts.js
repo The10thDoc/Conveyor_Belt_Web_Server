@@ -88,7 +88,6 @@ async function completeSession() {
     const newSession = {
         starttime:      timeStart,
         endtime:        timeEnd,
-        //totalSorted:    totalCountedInt,
         totalsorted:    totalCount,
         numredsorted:   redCount,
         numgreensorted: greenCount,
@@ -123,4 +122,10 @@ async function completeSession() {
     });
 
     alert("Success!  Session finished and package table cleared.")
+
+    totalCount = 0;
+    errorCount = 0;
+    redCount = 0;
+    greenCount = 0;
+    blueCount = 0;
 }
