@@ -50,7 +50,7 @@ async function completeSession() {
     }
 
 
-    var totalCountedInt = Integer.ParseInt(redCount) + Integer.ParseInt(greenCount) + Integer.ParseInt(blueCount) + Integer.ParseInt(errorCount);
+    //var totalCountedInt = Integer.ParseInt(redCount) + Integer.ParseInt(greenCount) + Integer.ParseInt(blueCount) + Integer.ParseInt(errorCount);
     //Getting total package count
     const packageCountGetResponse = await fetch('/packageCount', {
         method: 'GET',
@@ -83,8 +83,8 @@ async function completeSession() {
     const newSession = {
         starttime:      timeStart,
         endtime:        timeEnd,
-        totalSorted:    totalCountedInt,
-        //totalsorted:    totalCount,
+        //totalSorted:    totalCountedInt,
+        totalsorted:    totalCount,
         numredsorted:   redCount,
         numgreensorted: greenCount,
         numbluesorted:  blueCount,
