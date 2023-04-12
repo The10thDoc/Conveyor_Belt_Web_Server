@@ -123,6 +123,30 @@ function clearPackages() {
   });
 }
 
+function dropPackages() {
+  client.query('DROP TABLE packageinfo',(err, res)=> {
+    if(!err) {
+      console.log("Dropped PackageInfo table");
+    }
+    else {
+        console.log("\nERROR: \n");
+        console.log(err.message);
+    }
+  });
+}
+
+function remakePackages() {
+  client.query('CREATE TABLE PackageInfo (packageid SERIAL NOT NULL PRIMARY KEY, stickercolor varchar NOT NULL, timesorted TIME NOT NULL)',(err, res)=> {
+    if(!err) {
+      console.log("Created PackageInfo table");
+    }
+    else {
+        console.log("\nERROR: \n");
+        console.log(err.message);
+    }
+  });
+}
+
 function countPackages() {
   client.query('SELECT COUNT(*) FROM PackageInfo', (err, res)=> {
     if(!err) {
@@ -289,5 +313,8 @@ app.post('/finishSession', function(req, res) {
     }
   });
 
-  clearPackages();
+  //clearPackages();
+
+  dropPackages();
+  remakePackages();
 })
