@@ -3,7 +3,9 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!--
         <meta http-equiv="refresh" content="10">
+        -->
         <link rel="stylesheet" type="text/css" href="tables.css" id="style"></link>
         <title>Available Tables</title>
     </head>
@@ -23,7 +25,7 @@
         <h2>Package Info Table</h2>
         <div class="table1">
             <table class="package_sheet" id="package_sheet">
-                <script src="tableScripts.js" onload="createPackageSheet();"></script>
+                <script src="tableScripts.js" onload="setInterval(createPackageSheet(), 5000);"></script>
                 <tr>
                     <th>Package ID</th>
                     <th>Sticker Color</th>
