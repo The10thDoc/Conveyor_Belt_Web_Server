@@ -16,6 +16,14 @@ async function completeSession() {
     var greenCount = 0;
     var blueCount = 0;
 
+    const packRefreshResponse = await fetch('/updatePackageInfo', {
+        method: 'GET',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'  
+        }
+    });
+    
     //Getting color and error counts
     const colorGetResponse = await fetch('/colorCount', {
         method: 'GET',
