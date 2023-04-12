@@ -159,6 +159,7 @@ app.get('/updateSessionInfo', function(req, res) {
 
 //GET from database functions
 app.get('/packageInfo', function(req, res) {
+  updatePackageInfo();
   if(Object.keys(req.query).length === 0) { //If no args
     res.send(packageInfo);
   }
@@ -173,6 +174,7 @@ app.get('/packageCount', function(req, res) {
 
 //TODO: If user wants specific sessionID
 app.get('/sessionInfo', function(req, res) {
+  updateSessionInfo();
   if(Object.keys(req.query).length === 0) { //If no args
     res.send(sessionInfo);
   }
