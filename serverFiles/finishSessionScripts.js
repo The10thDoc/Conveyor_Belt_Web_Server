@@ -33,19 +33,19 @@ async function completeSession() {
         //Checking sticker color count
         switch(String(data[i].stickercolor)) {
             case "RED":
-                redCount = data[i].count;
+                redCount = Integer.ParseInt(data[i].count);
                 //totalCount = totalCount + redCount;
                 break;
             case "GREEN":
-                greenCount = data[i].count;
+                greenCount = Integer.ParseInt(data[i].count);
                 //totalCount = totalCount + greenCount;
                 break;
             case "BLUE":
-                blueCount = data[i].count;
+                blueCount = Integer.ParseInt(data[i].count);
                 //totalCount = totalCount + blueCount;
                 break;
             default:
-                errorCount = data[i].count;
+                errorCount = Integer.ParseInt(errorCount) + Integer.ParseInt(data[i].count);
         }
     }
 
