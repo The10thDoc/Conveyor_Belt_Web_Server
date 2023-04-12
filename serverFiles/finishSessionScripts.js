@@ -23,7 +23,7 @@ async function completeSession() {
             'Content-Type': 'application/json'  
         }
     });
-    
+
     //Getting color and error counts
     const colorGetResponse = await fetch('/colorCount', {
         method: 'GET',
@@ -33,9 +33,30 @@ async function completeSession() {
         }
     });
 
-    //Getting json response and placing in array
-    const data = await colorGetResponse.json();
+    //Getting total package count
+    const packageCountGetResponse = await fetch('/packageCount', {
+        method: 'GET',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        }
+    });
 
+    //Getting start and end times from database
+    const timeGetResponse = await fetch('/timeFrame', {
+        method: 'GET',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        }
+    });
+
+    //Getting json responses and placing in arrays
+    const data = await colorGetResponse.json();
+    const data_package = await packageCountGetResponse.json();
+    const data_time = await timeGetResponse.json();
+
+    
     //Setting variables for placing in finished session
     for(var i=0; i < data.length; i++) {
         //Checking sticker color count
@@ -57,31 +78,7 @@ async function completeSession() {
         }
     }
 
-
-    //var totalCountedInt = Integer.ParseInt(redCount) + Integer.ParseInt(greenCount) + Integer.ParseInt(blueCount) + Integer.ParseInt(errorCount);
-    //Getting total package count
-    const packageCountGetResponse = await fetch('/packageCount', {
-        method: 'GET',
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        }
-    });
-
-    const data_package = await packageCountGetResponse.json();
-
     totalCount = data_package[0].count;
-
-    //Getting start and end times from database
-    const timeGetResponse = await fetch('/timeFrame', {
-        method: 'GET',
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        }
-    });
-
-    const data_time = await timeGetResponse.json();
 
     //Storing times in variables
     timeStart = data_time[0].min;
