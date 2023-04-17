@@ -101,7 +101,6 @@ function getTimes() {
       console.log("Query: Start and End Time");
       console.log(res.rows);
       timeFrame = res.rows;
-      //timeFrame = JSON.parse(res);
     }
     else {
         console.log("\nERROR: \n");

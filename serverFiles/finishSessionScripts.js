@@ -122,10 +122,4 @@ async function completeSession() {
     });
 
     alert("Success!  Session finished and package table cleared.")
-
-    totalCount = 0;
-    errorCount = 0;
-    redCount = 0;
-    greenCount = 0;
-    blueCount = 0;
 }

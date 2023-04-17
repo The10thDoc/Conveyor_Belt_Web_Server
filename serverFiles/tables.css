@@ -35,12 +35,14 @@ body {
 
 .package_sheet {
     width: auto;
+    height: 600px;
     margin: auto;
     text-align: center;
 }
 
 .session_sheet {
     width: auto;
+    height: 600px;
     margin: auto;
     text-align: center;
 }
