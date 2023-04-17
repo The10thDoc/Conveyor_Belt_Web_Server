@@ -35,6 +35,44 @@ async function createPackageSheet() {
     }
 }
 
+/*
+async function refreshPackageSheet() {
+    var packageid;
+    var stickercolor;
+    var timesorted;
+
+    //Query packageInfo table
+    const response = await fetch('/packageInfo', {
+        method: 'GET',
+        headers: {
+            'Accept': 'application/json',
+            'Content-type': 'application/json'
+        }
+    });
+
+    const data = await response.json();
+
+    //Add each package to sheet
+    var table = document.getElementById("package_sheet");
+
+    for(var i=0; i < data.length; i++) {
+        packageid = data[i].packageid;
+        stickercolor = data[i].stickercolor;
+        timesorted = data[i].timesorted;
+
+        rowText = ' \
+        <td>' + packageid + '</td> \
+        <td>' + stickercolor + '</td> \
+        <td>' + timesorted + '</td>';
+
+        tr.innerHTML = rowText;
+        table.appendChild(tr);
+    }
+
+}
+*/
+
+
 //Displaying sessionInfo table on website
 async function createSessionSheet() {
     var sessionid;
