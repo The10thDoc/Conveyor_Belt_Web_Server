@@ -286,16 +286,16 @@ app.post('/finishSession', function(req, res) {
   var endtime = req.body.endtime;
   var totalsorted = req.body.totalsorted;
   var numredsorted = req.body.numredsorted;
-  var numgreensorted = req.body.numgreensorted;
+  var numyellowsorted = req.body.numyellowsorted;
   var numbluesorted = req.body.numbluesorted;
   var numerrors = req.body.numerrors;
 
   //Constructing INSERT query
-  var command = 'INSERT INTO sessioninfo (starttime, endtime, totalsorted, numredsorted, numgreensorted, numbluesorted, numerrors) VALUES(\'' + starttime +
+  var command = 'INSERT INTO sessioninfo (starttime, endtime, totalsorted, numredsorted, numyellowsorted, numbluesorted, numerrors) VALUES(\'' + starttime +
                                                 '\', \'' + endtime +
                                                 '\', ' + totalsorted +
                                                 ', ' + numredsorted +
-                                                ', ' + numgreensorted +
+                                                ', ' + numyellowsorted +
                                                 ', ' + numbluesorted +
                                                 ', ' + numerrors + ')';
   console.log(command);
