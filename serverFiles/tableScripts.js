@@ -80,7 +80,7 @@ async function createSessionSheet() {
     var endtime;
     var totalsorted;
     var numredsorted;
-    var numgreensorted;
+    var numyellowsorted;
     var numbluesorted;
     var numerrors;
 
@@ -106,7 +106,7 @@ async function createSessionSheet() {
         endtime = data[i].endtime;
         totalsorted = data[i].totalsorted;
         numredsorted = data[i].numredsorted;
-        numgreensorted = data[i].numgreensorted;
+        numyellowsorted = data[i].numyellowsorted;
         numbluesorted = data[i].numbluesorted;
         numerrors = data[i].numerrors;
 
@@ -116,7 +116,7 @@ async function createSessionSheet() {
         <td>' + endtime + '</td> \
         <td>' + totalsorted + '</td> \
         <td>' + numredsorted + '</td> \
-        <td>' + numgreensorted + '</td> \
+        <td>' + numyellowsorted + '</td> \
         <td>' + numbluesorted + '</td> \
         <td>' + numerrors + '</td>';
 

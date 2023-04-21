@@ -13,7 +13,7 @@ async function completeSession() {
     var totalCount = 0;
     var errorCount = 0;
     var redCount = 0;
-    var greenCount = 0;
+    var yellowCount = 0;
     var blueCount = 0;
 
     const packRefreshResponse = await fetch('/updatePackageInfo', {
@@ -65,8 +65,8 @@ async function completeSession() {
                 redCount = data[i].count;
                 //totalCount = totalCount + redCount;
                 break;
-            case "GREEN":
-                greenCount = data[i].count;
+            case "YELLOW":
+                yellowCount = data[i].count;
                 //totalCount = totalCount + greenCount;
                 break;
             case "BLUE":
@@ -90,7 +90,7 @@ async function completeSession() {
         endtime:        timeEnd,
         totalsorted:    totalCount,
         numredsorted:   redCount,
-        numgreensorted: greenCount,
+        numyellowsorted: yellowCount,
         numbluesorted:  blueCount,
         numerrors:      errorCount
     }
