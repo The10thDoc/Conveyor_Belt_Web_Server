@@ -120,6 +120,8 @@ async function completeSession() {
             'Content-Type': 'application/json'
         }
     });
+}
 
-    alert("Success!  Session finished and package table cleared.")
+async function finishAlert() {
+    alert("Success!  Session finished and package table cleared.");
 }
