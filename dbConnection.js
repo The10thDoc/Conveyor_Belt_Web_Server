@@ -54,7 +54,7 @@ updatePackageInfo();
 updateSessionInfo();
 
 function updatePackageInfo() {
-  client.query('SELECT * FROM packageinfo ORDER BY packageid ASC',(err, res)=>{
+  client.query('SELECT * FROM packageinfo ORDER BY packageid DESC',(err, res)=>{
     if(!err) {
       console.log("Query: packageInfo");
       console.log(res.rows);
@@ -68,7 +68,7 @@ function updatePackageInfo() {
 }
 
 function updateSessionInfo() {
-  client.query('SELECT * FROM sessioninfo ORDER BY sessionid ASC',(err, res)=>{
+  client.query('SELECT * FROM sessioninfo ORDER BY sessionid DESC',(err, res)=>{
     if(!err) {
       console.log("Query: sessionInfo");
       sessionInfo = res.rows;
