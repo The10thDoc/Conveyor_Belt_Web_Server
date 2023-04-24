@@ -56,7 +56,7 @@ async function completeSession() {
     const data_package = await packageCountGetResponse.json();
     const data_time = await timeGetResponse.json();
 
-    
+
     //Setting variables for placing in finished session
     for(var i=0; i < data.length; i++) {
         //Checking sticker color count
@@ -124,4 +124,8 @@ async function completeSession() {
 
 async function finishAlert() {
     alert("Success!  Session finished and package table cleared.");
+}
+
+async function returnToTables() {
+    location.href = "https://conveyor-web-server.herokuapp.com/tables.html";
 }
